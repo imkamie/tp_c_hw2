@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "consistent.h"
 
@@ -10,4 +11,11 @@ void consistent_fill_array() {
     for (int i = 0; i < INT_NUMBER; i++) {
         array[i] = i % 4;
     }
+
+    for (int i = 0; i < INT_NUMBER; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+    free(array);
+
 }

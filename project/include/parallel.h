@@ -8,6 +8,7 @@ typedef struct{
     int *array;
     int start;
     int end;
+    int is_last_thread;
 } pthrData;
 
 #endif  // TP_C_HW2_PARALLEL_LIB_H
