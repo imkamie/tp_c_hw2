@@ -34,6 +34,7 @@ int main() {
         elapsed += (double)(finish.tv_nsec - start.tv_nsec) / CONVERT_TO_SEC;
 
         printf("parallel: %lf\n", elapsed);
+
         free(array);
     }
 

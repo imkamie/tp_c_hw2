@@ -1,7 +1,7 @@
 #ifndef PROJECT_INCLUDE_PARALLEL_H_
 #define PROJECT_INCLUDE_PARALLEL_H_
 
-int* parallel_fill_array(int array_size, int cpu_num);
+int* parallel_fill_array(int array_size, int old_numbers_of_threads);
 void* threadFunc(void* thread_data);
 
 typedef struct {

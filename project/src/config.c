@@ -6,7 +6,7 @@
 
 
 config_t* parse_config_file(char *filename) {
-    FILE *file_config = fopen(filename, "r");
+    FILE* file_config = fopen(filename, "r");
     if (!file_config) {
         perror("failed to open env file");
         return NULL;
@@ -14,7 +14,7 @@ config_t* parse_config_file(char *filename) {
 
     char mode[20];
 
-    config_t *config = calloc(1, sizeof(config_t));
+    config_t* config = calloc(1, sizeof(config_t));
     if (!config) {
         printf("failed to allocate memory");
         free(config);
