@@ -15,17 +15,18 @@ int main() {
 
     if (config->mode == CONSISTENT) {
         int t = clock();
-        consistent_fill_array(config->array_size);
+        int *array = consistent_fill_array(config->array_size);
 
         float sec = ((float)t) / CLOCKS_PER_SEC;
 
         printf("consistent %f\n", sec);
+        free(array);
     } else if (config->mode == PARALLEL) {
         struct timespec start, finish;
 
         clock_gettime(CLOCK_MONOTONIC, &start);
 
-        parallel_fill_array(config->array_size, config->cpu_number);
+        int *array = parallel_fill_array(config->array_size, config->cpu_number);
 
         clock_gettime(CLOCK_MONOTONIC, &finish);
 
@@ -33,6 +34,7 @@ int main() {
         elapsed += (double)(finish.tv_nsec - start.tv_nsec) / CONVERT_TO_SEC;
 
         printf("parallel: %lf\n", elapsed);
+        free(array);
     }
 
     free(config);

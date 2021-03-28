@@ -14,7 +14,7 @@ void* threadFunc(void* thread_data) {
     return NULL;
 }
 
-void parallel_fill_array(int array_size, int cpu_num) {
+int* parallel_fill_array(int array_size, int cpu_num) {
     if (array_size % cpu_num != 0) {  // if size of array doesn't divide without a remainder
         int numbers_of_extra_cells = array_size % cpu_num;
         int numbers_of_zone_for_each_thread = array_size / cpu_num;
@@ -31,7 +31,7 @@ void parallel_fill_array(int array_size, int cpu_num) {
 
     if (cpu_num > array_size) {
         printf("[ERROR] the number of threads is bigger than the size of the array\n");
-        return;
+        return NULL;
     }
 
     int* array = calloc(array_size, sizeof(int));
@@ -68,5 +68,5 @@ void parallel_fill_array(int array_size, int cpu_num) {
     free(threads);
     free(threadData);
 
-    free(array);
+    return array;
 }
