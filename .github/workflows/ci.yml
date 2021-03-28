@@ -17,13 +17,13 @@ jobs:
         run: sudo apt install lcov
 
       - name: Build
-        run: mkdir build && cd build && cmake .. && make && cp env build/
+        run: mkdir build && cp env build/ && cd build && cmake .. && make
 
       - name: Static Analis and Linters
         run: ./linters/run.sh
 
       - name: Tests
-        run: mkdir runtests && cd runtests && cmake .. && make && cp env runtests/ && ./runTests && lcov -t "tp_c_hw2" -o coverage.txt -c -d . && cp coverage.txt ../
+        run: mkdir runtests && cp env runtests/ && cd runtests && cmake .. && make && ./runTests && lcov -t "tp_c_hw2" -o coverage.txt -c -d . && cp coverage.txt ../
 
       - name: Valgrind
         run: sudo apt-get update && sudo apt-get install -y valgrind && mkdir valgrind_tests && cd valgrind_tests && cmake .. && make && valgrind --tool=memcheck --leak-check=full ./runTests
