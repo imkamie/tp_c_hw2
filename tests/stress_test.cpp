@@ -5,8 +5,8 @@ extern "C" {
 #include "parallel.h"
 }
 
-#define STRESS_ITERATION_NUMBER 30
-#define STRESS_LIMIT_SIZE 10000
+#define STRESS_ITERATION_NUMBER 10
+#define STRESS_LIMIT_SIZE 100
 
 TEST(TestStressForParallelAndConsistent, RandomArraySize) {
 
