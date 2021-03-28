@@ -1,21 +1,13 @@
 #include <stdlib.h>
-#include <stdio.h>
 
 #include "consistent.h"
 
-#define INT_NUMBER 26214400
+void consistent_fill_array(int array_size) {
+    int* array = calloc(array_size, sizeof(int));
 
-void consistent_fill_array() {
-    int* array = calloc(INT_NUMBER, sizeof(int));
-
-    for (int i = 0; i < INT_NUMBER; i++) {
+    for (int i = 0; i < array_size; i++) {
         array[i] = i % 4;
     }
 
-    for (int i = 0; i < INT_NUMBER; i++) {
-        printf("%d ", array[i]);
-    }
-    printf("\n");
     free(array);
-
 }

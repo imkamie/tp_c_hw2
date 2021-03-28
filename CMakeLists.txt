@@ -9,10 +9,10 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
 set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS} -Wall -Wpedantic -Werror --coverage")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread -Wall -Wpedantic -Werror --coverage")
 
-add_library(consistent STATIC project/src/consistent.c)
+add_library(consistent STATIC project/src/consistent.c project/src/config.c)
 target_include_directories(consistent PUBLIC project/include)
 
-add_library(parallel STATIC project/src/parallel.c)
+add_library(parallel SHARED project/src/parallel.c project/src/config.c)
 target_include_directories(parallel PUBLIC project/include)
 
 add_executable(tp_c_hw2 project/src/main.c)

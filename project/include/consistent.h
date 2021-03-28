@@ -1,6 +1,6 @@
-#ifndef TP_C_HW2_CONSISTENT_LIB_H
-#define TP_C_HW2_CONSISTENT_LIB_H
+#ifndef PROJECT_INCLUDE_CONSISTENT_H_
+#define PROJECT_INCLUDE_CONSISTENT_H_
 
-void consistent_fill_array();
+void consistent_fill_array(int array_size);
 
-#endif  // TP_C_HW2_CONSISTENT_LIB_H
+#endif  // PROJECT_INCLUDE_CONSISTENT_H_
