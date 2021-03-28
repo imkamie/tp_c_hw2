@@ -1,5 +1,6 @@
 #include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "config.h"
 #include "consistent.h"
@@ -34,5 +35,6 @@ int main() {
         printf("parallel: %lf\n", elapsed);
     }
 
+    free(config);
     return 0;
 }
