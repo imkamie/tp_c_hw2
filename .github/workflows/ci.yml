@@ -19,10 +19,8 @@ jobs:
       - name: Build
         run: mkdir build && cp env build/ && cd build && cmake .. && make
 
-      - name: C++ code linter (clang-tidy and cppcheck)
-        uses: smay1613/cpp-linter-action@0.0.2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: CPPCheck-annotations
+        uses: tonybaloney/cppcheck-action@1.0
 
       - name: Tests
         run: mkdir runtests && cd runtests && cmake .. && make && ./runTests && lcov -t "tp_c_hw2" -o coverage.txt -c -d . && cp coverage.txt ../
