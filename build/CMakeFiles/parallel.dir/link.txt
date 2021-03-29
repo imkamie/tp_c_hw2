@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC  -pthread -pthread -Wall -Wpedantic -Werror --coverage -shared -Wl,-soname,libparallel.so -o libparallel.so CMakeFiles/parallel.dir/project/src/parallel.c.o CMakeFiles/parallel.dir/project/src/config.c.o 

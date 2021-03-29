@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../project/include/consistent.h
+
+../project/include/parallel.h
+
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/consistent_test.cpp
+gtest/gtest.h
+-
+consistent.h
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/consistent.h
+
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/parallel_test.cpp
+gtest/gtest.h
+-
+parallel.h
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/parallel.h
+
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/run_tests.cpp
+gtest/gtest.h
+-
+
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/stress_test.cpp
+gtest/gtest.h
+-
+consistent.h
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/consistent.h
+parallel.h
+/home/runner/work/tp_c_hw2/tp_c_hw2/tests/parallel.h
+

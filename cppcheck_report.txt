@@ -1,0 +1,29 @@
+build/CMakeFiles/3.19.7/CompilerIdC/CMakeCCompilerId.c:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 117 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+build/CMakeFiles/3.19.7/CompilerIdC/CMakeCCompilerId.c:591:0: information: Skipping configuration 'SDCC;__SDCC_VERSION_MAJOR' since the value of '__SDCC_VERSION_MAJOR' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  COMPILER_VERSION_MAJOR,
+^
+build/CMakeFiles/3.19.7/CompilerIdC/CMakeCCompilerId.c:591:0: information: Skipping configuration 'SDCC;__SDCC_VERSION_MAJOR;__SDCC_VERSION_MAJOR' since the value of '__SDCC_VERSION_MAJOR' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  COMPILER_VERSION_MAJOR,
+^
+build/CMakeFiles/3.19.7/CompilerIdCXX/CMakeCXXCompilerId.cpp:0:0: information: Too many #ifdef configurations - cppcheck only checks 12 of 115 configurations. Use --force to check all configurations. [toomanyconfigs]
+
+^
+build/CMakeFiles/3.19.7/CompilerIdCXX/CMakeCXXCompilerId.cpp:576:0: information: Skipping configuration '_MSC_BUILD;_MSC_VER' since the value of '_MSC_VER' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  COMPILER_VERSION_MAJOR,
+^
+build/CMakeFiles/3.19.7/CompilerIdCXX/CMakeCXXCompilerId.cpp:578:0: information: Skipping configuration '_MSC_BUILD;_MSC_VER' since the value of '_MSC_VER' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  '.', COMPILER_VERSION_MINOR,
+^
+build/CMakeFiles/3.19.7/CompilerIdCXX/CMakeCXXCompilerId.cpp:580:0: information: Skipping configuration '_MSC_FULL_VER;_MSC_VER' since the value of '_MSC_FULL_VER' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+   '.', COMPILER_VERSION_PATCH,
+^
+build/CMakeFiles/3.19.7/CompilerIdCXX/CMakeCXXCompilerId.cpp:576:0: information: Skipping configuration '_MSC_FULL_VER;_MSC_VER' since the value of '_MSC_VER' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  COMPILER_VERSION_MAJOR,
+^
+build/CMakeFiles/3.19.7/CompilerIdCXX/CMakeCXXCompilerId.cpp:578:0: information: Skipping configuration '_MSC_FULL_VER;_MSC_VER' since the value of '_MSC_VER' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly. [ConfigurationNotChecked]
+  '.', COMPILER_VERSION_MINOR,
+^
+nofile:0:0: information: Cppcheck cannot find all the include files (use --check-config for details) [missingInclude]
+
