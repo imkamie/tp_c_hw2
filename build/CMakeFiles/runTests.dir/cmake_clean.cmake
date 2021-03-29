@@ -1,0 +1,13 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/runTests.dir/tests/consistent_test.cpp.o"
+  "CMakeFiles/runTests.dir/tests/parallel_test.cpp.o"
+  "CMakeFiles/runTests.dir/tests/run_tests.cpp.o"
+  "CMakeFiles/runTests.dir/tests/stress_test.cpp.o"
+  "runTests"
+  "runTests.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/runTests.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,1 @@
+/usr/bin/cc  -pthread -pthread -Wall -Wpedantic -Werror --coverage CMakeFiles/tp_c_hw2.dir/project/src/main.c.o -o tp_c_hw2  -Wl,-rpath,/home/runner/work/tp_c_hw2/tp_c_hw2/build libconsistent.a libparallel.so 
