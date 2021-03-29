@@ -22,6 +22,9 @@ jobs:
       - name: cppcheck-action
         uses: deep5050/cppcheck-action@v2.0.0
 
+      - name: publish report cppcheck
+        uses: mikeal/publish-to-github-action@master
+
       - name: Tests
         run: mkdir runtests && cd runtests && cmake .. && make && ./runTests && lcov -t "tp_c_hw2" -o coverage.txt -c -d . && cp coverage.txt ../
 
