@@ -1,2 +1,0 @@
-/usr/bin/ar qc libconsistent.a CMakeFiles/consistent.dir/project/src/consistent.c.o CMakeFiles/consistent.dir/project/src/config.c.o
-/usr/bin/ranlib libconsistent.a
