@@ -19,9 +19,10 @@ jobs:
       - name: Build
         run: mkdir build && cp env build/ && cd build && cmake .. && make
 
-      - name: cpplint
-        uses: actions/setup-python@v1
-        run: pip install cpplint && cpplint --recursive .
+      - name: C++ code linter (clang-tidy and cppcheck)
+        uses: smay1613/cpp-linter-action@0.0.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Tests
         run: mkdir runtests && cd runtests && cmake .. && make && ./runTests && lcov -t "tp_c_hw2" -o coverage.txt -c -d . && cp coverage.txt ../
