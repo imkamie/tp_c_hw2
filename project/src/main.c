@@ -13,7 +13,7 @@
 int main() {
     config_t* config = parse_config_file("env");
 
-    if (config->mode == CONSISTENT) {
+    if(config->mode == CONSISTENT) {
         int t = clock();
         int *array = consistent_fill_array(config->array_size);
 

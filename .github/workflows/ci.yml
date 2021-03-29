@@ -19,8 +19,8 @@ jobs:
       - name: Build
         run: mkdir build && cp env build/ && cd build && cmake .. && make
 
-      - name: Code check
-        uses: ./myaction
+      - name: cppcheck-action
+        uses: deep5050/cppcheck-action@v2.0.0
 
       - name: Tests
         run: mkdir runtests && cd runtests && cmake .. && make && ./runTests && lcov -t "tp_c_hw2" -o coverage.txt -c -d . && cp coverage.txt ../
