@@ -1,4 +1,11 @@
-//
-// Created by kamilya on 29.03.2021.
-//
+#include <gtest/gtest.h>
 
+extern "C" {
+#include "config.h"
+}
+
+#define FILENAME "env"
+
+TEST(TestConsistFillArray, ConsistantFill) {
+    config_t* config = parse_config_file(FILENAME);
+}
