@@ -19,11 +19,10 @@ jobs:
       - name: Build
         run: mkdir build && cp env build/ && cd build && cmake .. && make
 
-      - name: cppcheck-action
-        uses: deep5050/cppcheck-action@v2.0.0
-
-      - name: publish report cppcheck
-        uses: mikeal/publish-to-github-action@master
+      - name: C/C++ code linter (clang-tidy, clang-format, and cppcheck)
+        uses: ArtificialAmateur/cpp-linter-action@0.01
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Tests
         run: mkdir runtests && cd runtests && cmake .. && make && ./runTests && lcov -t "tp_c_hw2" -o coverage.txt -c -d . && cp coverage.txt ../
