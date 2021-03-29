@@ -9,9 +9,10 @@
 #define CONVERT_TO_SEC 1000000000.0
 #define CONSISTENT 0
 #define PARALLEL 1
+#define FILENAME "env"
 
 int main() {
-    config_t* config = parse_config_file("env");
+    config_t* config = parse_config_file(FILENAME);
 
     if (config->mode == CONSISTENT) {
         int t = clock();
