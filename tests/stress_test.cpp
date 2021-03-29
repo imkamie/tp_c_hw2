@@ -11,8 +11,8 @@ extern "C" {
 
 TEST(TestStressForParallelAndConsistent, RandomArraySize) {
     for (int i = 0; i < STRESS_ITERATION_NUMBER; i++) {
-        int array_size = (rand_r() % STRESS_LIMIT_SIZE) + 1;
-        int cpu_num = (rand_r() % array_size) + 1;
+        int array_size = (rand() % STRESS_LIMIT_SIZE) + 1;
+        int cpu_num = (rand() % array_size) + 1;
         int *parallel_array = parallel_fill_array(array_size, cpu_num);
         int *consistent_array = consistent_fill_array(array_size);
 
