@@ -1,12 +1,12 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-#include "consistent.h"
+#include "prog.h"
 }
 
 TEST(TestConsistFillArray, ConsistantFill) {
     int array_size = 5;
-    int *array = consistent_fill_array(array_size);
+    int *array = run_program(array_size);
     int array_expected[] = {0, 1, 2, 3, 0};
 
     for (int i = 0; i < array_size; i++) {
@@ -15,3 +15,22 @@ TEST(TestConsistFillArray, ConsistantFill) {
 
     free(array);
 }
+
+TEST(TestConsistFillArray, ZeroArraySize) {
+    int array_size = 0;
+    int *array = run_program(array_size);
+
+    EXPECT_FALSE(array != nullptr);
+
+    free(array);
+}
+
+TEST(TestConsistFillArray, InvalidArraySize) {
+    int array_size = -1;
+    int *array = run_program(array_size);
+
+    EXPECT_FALSE(array != nullptr);
+
+    free(array);
+}
+

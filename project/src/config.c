@@ -1,55 +1,23 @@
+#include <errno.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 #include "config.h"
 
+size_t parse_config_file(const char *filename) {
+    size_t array_size = 0;
 
-config_t* parse_config_file(char *filename) {
     FILE* file_config = fopen(filename, "r");
     if (!file_config) {
-        perror("failed to open env file");
-        return NULL;
+        return ENOENT;
     }
 
-    char mode[20];
-
-    config_t* config = calloc(1, sizeof(config_t));
-    if (!config) {
-        printf("failed to allocate memory");
-        free(config);
+    if (fscanf(file_config, "%zu", &array_size) != 1) {
         fclose(file_config);
-        return NULL;
-    }
-
-    if (fscanf(file_config, "%19s", mode) != 1) {
-        perror("failed to read mode from config");
-        free(config);
-        fclose(file_config);
-        return NULL;
-    }
-
-    if (strcmp(mode, "parallel") == 0) {
-        config->mode = 1;
-    } else {  // consistent by default
-        config->mode = 0;
-    }
-
-    if (fscanf(file_config, "%d", &config->array_size) != 1) {
-        free(config);
-        fclose(file_config);
-        perror("failed to read array size from config");
-        return NULL;
-    }
-
-    if (fscanf(file_config, "%d", &config->cpu_number) != 1) {
-        free(config);
-        fclose(file_config);
-        perror("failed to read cpu_number from config");
-        return NULL;
+        return EINVAL;
     }
 
     fclose(file_config);
 
-    return config;
+    return array_size;
 }

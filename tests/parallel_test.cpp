@@ -1,13 +1,12 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-#include "parallel.h"
+#include "prog.h"
 }
 
 TEST(TestConsistFillArray, ParallelFillArraysSizeAndNumberOfCpuSame) {
     int array_size = 4;
-    int cpu_num = 4;
-    int *array = parallel_fill_array(array_size, cpu_num);
+    int *array = run_program(array_size);
     int array_expected[] = {0, 1, 2, 3};
 
     for (int i = 0; i < array_size; i++) {
@@ -19,8 +18,7 @@ TEST(TestConsistFillArray, ParallelFillArraysSizeAndNumberOfCpuSame) {
 
 TEST(TestConsistFillArray, ParallelFillArraySizeIsBigger) {
     int array_size = 5;
-    int cpu_num = 4;
-    int *array = parallel_fill_array(array_size, cpu_num);
+    int *array = run_program(array_size);
     int array_expected[] = {0, 1, 2, 3, 0};
 
     for (int i = 0; i < array_size; i++) {
@@ -32,8 +30,7 @@ TEST(TestConsistFillArray, ParallelFillArraySizeIsBigger) {
 
 TEST(TestConsistFillArray, ParallelFillWithRemeinderOfDivision) {
     int array_size = 10;
-    int cpu_num = 3;
-    int *array = parallel_fill_array(array_size, cpu_num);
+    int *array = run_program(array_size);
     int array_expected[] = {0, 1, 2, 3, 0, 1, 2, 3, 0, 1};
 
     for (int i = 0; i < array_size; i++) {
