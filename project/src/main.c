@@ -11,7 +11,6 @@
 int main() {
     size_t array_size = parse_config_file(FILENAME);
 
-
     struct timespec start, finish;
 
     clock_gettime(CLOCK_MONOTONIC, &start);

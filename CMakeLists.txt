@@ -35,6 +35,6 @@ else()
 endif(parallel)
 
 find_package(GTest REQUIRED)
-set(SOURCES tests/run_tests.cpp tests/fill_array_test.cpp tests/stress_test.cpp tests/config_test.cpp)
+set(SOURCES tests/run_tests.cpp tests/run_prog_test.cpp tests/stress_test.cpp tests/config_test.cpp)
 add_executable(runTests ${SOURCES})
 target_link_libraries(runTests GTest::gtest consistent parallel)

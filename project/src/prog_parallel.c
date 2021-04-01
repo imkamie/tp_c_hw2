@@ -11,15 +11,32 @@ typedef struct {
     int start;
     int end;
     int is_last_thread;
-} pthrData;
+} pthr_data_t;
 
-void* threadFunc(void* thread_data) {
-    pthrData *data = (pthrData*) thread_data;
+void* thread_func(void* thread_data) {
+    pthr_data_t *data = (pthr_data_t*) thread_data;
 
     data->array = fill_array(data->array, data->start, data->end);
 
     return NULL;
 }
+
+size_t new_threads_number(size_t array_size, size_t threads_num, size_t parts_num) {
+    size_t numbers_of_extra_cells = array_size % threads_num;
+
+    size_t numbers_of_additional_threads = 0;
+    if (numbers_of_extra_cells % parts_num == 0) {
+        numbers_of_additional_threads = numbers_of_extra_cells / parts_num;
+    } else {
+        numbers_of_additional_threads = (numbers_of_extra_cells / parts_num) + 1;
+    }
+
+    size_t new_numbers_of_threads = threads_num + numbers_of_additional_threads;
+
+    return new_numbers_of_threads;
+}
+
+
 
 int* run_program(size_t array_size) {
     size_t number_of_threads = sysconf(_SC_NPROCESSORS_ONLN);
@@ -27,20 +44,12 @@ int* run_program(size_t array_size) {
     size_t new_numbers_of_threads = number_of_threads;
 
     if (array_size % number_of_threads != 0) {
-        size_t numbers_of_extra_cells = array_size % number_of_threads;
-
-        size_t numbers_of_additional_threads = 0;
-        if (numbers_of_extra_cells % numbers_of_zone_for_each_thread == 0) {
-            numbers_of_additional_threads = numbers_of_extra_cells / numbers_of_zone_for_each_thread;
-        } else {
-            numbers_of_additional_threads = (numbers_of_extra_cells / numbers_of_zone_for_each_thread) + 1;
-        }
-
-        new_numbers_of_threads = number_of_threads + numbers_of_additional_threads;
+        new_numbers_of_threads = new_threads_number(array_size,
+                                                    number_of_threads,
+                                                    numbers_of_zone_for_each_thread);
     }
 
     if (new_numbers_of_threads > array_size) {
-        printf("The number of threads is bigger than the size of the array\n");
         return NULL;
     }
 
@@ -55,7 +64,7 @@ int* run_program(size_t array_size) {
         return NULL;
     }
 
-    pthrData* threadData = malloc(new_numbers_of_threads * sizeof(pthrData));
+    pthr_data_t* threadData = malloc(new_numbers_of_threads * sizeof(pthr_data_t));
     if (!threadData) {
         free(array);
         free(threads);
@@ -80,7 +89,7 @@ int* run_program(size_t array_size) {
             threadData[i].end = separator;
         }
 
-        if (pthread_create(&(threads[i]), NULL, threadFunc, &threadData[i]) != 0) {
+        if (pthread_create(&(threads[i]), NULL, thread_func, &threadData[i]) != 0) {
             free(array);
             free(threads);
             free(threadData);
